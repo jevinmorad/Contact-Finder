@@ -1,29 +1,4 @@
-import java.io.*;
-import java.util.*;
-
-class ContactSet{
-    public HashMap<String, String> getSet(){
-        HashMap<String, String> contactMap = new HashMap<String, String>();
-        try {
-            File contact = new File("contact.csv");
-            FileReader fr = new FileReader(contact);
-            BufferedReader br = new BufferedReader(fr);
-            // Creared a HashMap with phoneNumber as a key and name as value
-            String line;
-            // reading character untill file ends
-            while ((line = br.readLine()) != null) {
-                // dividing line into parts and storing it in an array
-                String[] part = line.split(",");
-                // storing phoneNumber and name in the HashMap
-                contactMap.put(part[0], part[1]);
-            }
-            br.close();
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-        return contactMap;
-    }
-}
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,6 +20,9 @@ public class Main {
                 GetContacts contacts = new GetContacts();
                 contacts.getContacts();
                 break;
+            case 2:
+                AddContacts add = new AddContacts(); 
+                add.addContacts();
             case 0:
                 System.exit(0);
                 break;

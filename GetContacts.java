@@ -6,8 +6,8 @@ class GetContacts {
     public void getContacts() {
         HashMap<String, String> map = new HashMap<>();
 
-        ContactSet set = new ContactSet();
-        map = set.getSet();
+        ReadWrite set = new ReadWrite();
+        map = set.read();
         
         Set<Map.Entry<String, String>> entrySet = map.entrySet();
         
