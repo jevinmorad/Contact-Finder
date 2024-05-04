@@ -4,6 +4,7 @@
 Demo of a searching and sorting algorithm in contact list.
 
 I showcased the Contact Finder app's features with demo Contacts from a .csv file.
+
 NOTE: This is a CMD version.
 
 ## Features
@@ -13,3 +14,14 @@ NOTE: This is a CMD version.
 - Search by NAME and NUMBER
 - Sorting NAME and NUMBER
 
+
+## Deployment
+
+To deploy this project run
+
+```bash
+javac Main.java
+```
+```bash
+java Main
+```
