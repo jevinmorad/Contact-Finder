@@ -14,8 +14,9 @@ class AddContacts {
         // Getting information about name and number
         System.out.print("Enter number of contacts you want to add : ");
         int n= sc.nextInt();
+        System.out.println();
         for (int i = 0; i < n; i++) {
-            System.out.println("For contact : "+i);
+            System.out.println("For contact : "+(i+1));
             System.out.print("  Enter contact name : ");
             String name = sc.next();
             System.out.print("  Enter contact number : ");
@@ -32,6 +33,7 @@ class AddContacts {
             }
         }
         if (count>0) {
+            // Calling write method of ReadWrite class to edit new contacts in file
             set.write(map);
         }
         
