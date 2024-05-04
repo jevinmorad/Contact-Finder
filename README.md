@@ -14,3 +14,14 @@ NOTE: This is a CMD version.
 - Search by NAME and NUMBER
 - Sorting NAME and NUMBER
 
+
+## Deployment
+
+To deploy this project run
+
+```bash
+javac Main.java
+```
+```bash
+java Main
+```
