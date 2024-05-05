@@ -10,15 +10,16 @@ class AddContacts {
         ReadWrite set = new ReadWrite();
         map = set.read();
 
-        int count=0;
+        boolean flag = true;
         // Getting information about name and number
         System.out.print("Enter number of contacts you want to add : ");
         int n= sc.nextInt();
         System.out.println();
+        sc.nextLine();
         for (int i = 0; i < n; i++) {
             System.out.println("For contact : "+(i+1));
             System.out.print("  Enter contact name : ");
-            String name = sc.next();
+            String name = sc.nextLine();
             System.out.print("  Enter contact number : ");
             String number = sc.next();
             
@@ -26,13 +27,13 @@ class AddContacts {
 
             if (check == null) {
                 System.out.println("Contact added succesfully.\n");
-                count++;
+                flag = false;
             }
             else {
                 System.out.println("Contact already exist.\n");
             }
         }
-        if (count>0) {
+        if (flag) {
             // Calling write method of ReadWrite class to edit new contacts in file
             set.write(map);
         }

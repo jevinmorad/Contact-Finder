@@ -5,8 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("1. List all contacts");
         System.out.println("2. Add contact");
-        System.out.println("3. Edit contact");
-        System.out.println("4. Delete contact");
+        System.out.println("3. Delete contact");
+        System.out.println("4. Edit contact");
         System.out.println("5. Search name");
         System.out.println("6. Search number");
         System.out.println("7. Sort contact");
@@ -23,6 +23,9 @@ public class Main {
             case 2:
                 AddContacts add = new AddContacts(); 
                 add.addContacts();
+            case 3:
+                DeleteContacts delete = new DeleteContacts();
+                delete.deleteContacts();
             case 0:
                 System.exit(0);
                 break;
