@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 class DeleteContacts {
-    public void deleteContacts(){
+    public void deleteContacts(String deleteContact){
         Scanner sc = new Scanner(System.in);
 
         //Reading all contacts
@@ -18,8 +18,6 @@ class DeleteContacts {
         gc.getContacts();
 
         // about delete contact
-        System.out.print("\nEnter contact name or number to delete contact : ");
-        String deleteContact = sc.nextLine();
         boolean flag = true;
 
         Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();

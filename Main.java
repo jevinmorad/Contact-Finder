@@ -21,11 +21,29 @@ public class Main {
                 contacts.getContacts();
                 break;
             case 2:
-                AddContacts add = new AddContacts(); 
-                add.addContacts();
+                AddContacts add = new AddContacts();
+                int n = sc.nextInt();
+                sc.nextLine();
+                System.out.println();
+
+                for (int i = 0; i < n; i++) {
+                    System.out.println("For contact : " + (i + 1));
+                    System.out.print("  Enter contact name : ");
+                    String name = sc.nextLine();
+                    System.out.print("  Enter contact number : ");
+                    String number = sc.next();
+
+                    add.addContacts(name, number, n);
+                }
+                break;
             case 3:
                 DeleteContacts delete = new DeleteContacts();
-                delete.deleteContacts();
+
+                System.out.print("\nEnter contact name or number to delete contact : ");
+                String deleteContact = sc.nextLine();
+
+                delete.deleteContacts(deleteContact);
+                break;
             case 0:
                 System.exit(0);
                 break;
