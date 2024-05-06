@@ -44,6 +44,31 @@ public class Main {
 
                 delete.deleteContacts(deleteContact);
                 break;
+            case 4:
+                EditContacts edit = new EditContacts();
+
+                System.out.print("Enter what you want to edit\n\t1. Name\n\t2. Number\nEnter your choice : ");
+                choice = sc.nextInt();
+                sc.nextLine();
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter name of the contact you want to change : ");
+                        String oldName = sc.nextLine();
+                        System.out.print("Enter new name : ");
+                        String newName = sc.nextLine();
+                        edit.changeName(oldName, newName);
+                        break;
+                    case 2:
+                        System.out.print("Enter number of the contact you want change : ");
+                        String oldNumber = sc.nextLine();
+                        System.out.print("Enter new name : ");
+                        String newNumber = sc.nextLine();
+                        edit.changeNumber(oldNumber, newNumber);
+                    default:
+                        System.out.println("Enter correct choice");
+                        break;
+                }
+                break;
             case 0:
                 System.exit(0);
                 break;
