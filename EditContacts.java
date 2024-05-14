@@ -1,39 +1,99 @@
 import java.util.*;
 
 class EditContacts {
-    public void changeName(String oldName, String newName) {
-        Scanner sc = new Scanner(System.in);
-        HashMap<String, String> map = new HashMap<>();
-
+    HashMap<String, String> map = new HashMap<>();
+    HashSet<String> nonUniqueValues = new HashSet<>();
+    
+    public EditContacts(){
         ReadWrite rw = new ReadWrite();
         map = rw.read();
-        System.out.println("Changing name");
-        int count = 0;
-        // Iterator<Map.Entry<String, String>
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            System.out.println("Changing name");
-            if (oldName.equals(entry.getValue())) {
-                // if multiple numbers are registered
-                
-                if (count > 1) {
-                    System.out.println("Two contacts are available.");
-                    System.out.print("Enter contact number : ");
-                    String number = sc.nextLine();
+
+        HashSet<String> checkUniqueValues = new HashSet<>();
+        for (String value : map.values()) {
+            boolean check = checkUniqueValues.add(value);
+            if (!check) {
+                nonUniqueValues.add(value);
+            }
+        }
+    }
+
+    // to change name
+    public void changeName(String oldName) {
+        ReadWrite rw = new ReadWrite();
+        Scanner sc = new Scanner(System.in);
+        
+        if (!map.containsValue(oldName)) {
+            System.out.println("Contact not found");
+            System.exit(1);
+        }
+
+        boolean flag = false;
+        String number;
+        String newName;
+        // checking for duplicate value.
+        if (nonUniqueValues.contains(oldName)) {
+            System.out.println("\nSame name for different number found.");
+
+            System.out.print("\nEnter contact number : ");
+            number = sc.nextLine();
+            System.out.print("Enter new name : ");
+            newName = sc.nextLine();
+            
+            if (!map.containsKey(number)) {
+                System.out.println("Contact not found.");
+                System.exit(0);
+            }
+            else {
+                map.remove(number,oldName);
+                map.put(number, newName);
+                flag=true;
+            }
+        }
+        // for single value
+        else {
+            Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, String> entry = iterator.next();
+                if (entry.getValue().equals(oldName)) {
+                    number = entry.getKey();
+
+                    System.out.print("Enter new name : ");
+                    newName = sc.nextLine();
+
                     map.remove(number, oldName);
                     map.put(number, newName);
-                // if one number is registered
-                } else {
-                    map.remove(entry.getValue());
-                    map.put(entry.getKey(), newName);
+
+                    flag=true;
+                    break;
                 }
-                count=0;
             }
+        }
+        if (flag) {
+            rw.write(map);
+            System.out.println("Name changed sucessfully");
         }
         sc.close();
     }
 
-    public void changeNumber(String oldNumber, String newNumber) {
+    // to change contact
+    public void changeNumber(String oldNumber) {
+        ReadWrite rw = new ReadWrite();
+        Scanner sc = new Scanner(System.in);
 
+        String name;
+        if (map.containsKey(oldNumber)) {
+            System.out.print("Enter new number : ");
+            String newNumber = sc.nextLine();
+            name = map.get(oldNumber);
+            map.remove(oldNumber);
+            map.put(newNumber, name);
+            rw.write(map);
+            System.out.println("Contact number is edited.");
+        }
+        else {
+            System.out.println("Number not found.");
+        }
+        sc.close();
     }
 
 }

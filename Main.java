@@ -13,63 +13,61 @@ public class Main {
         System.out.println("8. Continue");
         System.out.println("0. Exit");
         System.out.print("\nEnter your choice: ");
-        int choice = sc.nextInt();
+        char choice = sc.next().charAt(0);
+        sc.nextLine();
         System.out.println();
         switch (choice) {
-            case 1:
+            case '1':
                 GetContacts contacts = new GetContacts();
                 contacts.getContacts();
                 break;
-            case 2:
+            case '2':
                 AddContacts add = new AddContacts();
+                System.out.print("Enter total number of contacts you want to add: ");
                 int n = sc.nextInt();
                 sc.nextLine();
-                System.out.println();
-
+                String[] name = new String[n];
+                String[] number = new String[n];
                 for (int i = 0; i < n; i++) {
                     System.out.println("For contact : " + (i + 1));
-                    System.out.print("  Enter contact name : ");
-                    String name = sc.nextLine();
-                    System.out.print("  Enter contact number : ");
-                    String number = sc.next();
-
-                    add.addContacts(name, number, n);
+                    System.out.print("   Enter contact name : ");
+                    name[i] = sc.nextLine();
+                    System.out.print("   Enter contact number : ");
+                    number[i] = sc.nextLine();    
                 }
+                add.addContacts(name, number, n);
                 break;
-            case 3:
+            case '3':
                 DeleteContacts delete = new DeleteContacts();
 
-                System.out.print("\nEnter contact name or number to delete contact : ");
+                System.out.print("Enter contact name or number to delete contact : ");
                 String deleteContact = sc.nextLine();
 
                 delete.deleteContacts(deleteContact);
                 break;
-            case 4:
+            case '4':
                 EditContacts edit = new EditContacts();
 
                 System.out.print("Enter what you want to edit\n\t1. Name\n\t2. Number\nEnter your choice : ");
-                choice = sc.nextInt();
+                char editChoice = sc.next().charAt(0);
                 sc.nextLine();
-                switch (choice) {
-                    case 1:
-                        System.out.print("Enter name of the contact you want to change : ");
+                switch (editChoice) {
+                    case '1':
+                        System.out.print("\nEnter name of the contact you want to change : ");
                         String oldName = sc.nextLine();
-                        System.out.print("Enter new name : ");
-                        String newName = sc.nextLine();
-                        edit.changeName(oldName, newName);
+                        edit.changeName(oldName);
                         break;
-                    case 2:
-                        System.out.print("Enter number of the contact you want change : ");
+                    case '2':
+                        System.out.print("\nEnter contact number you want change : ");
                         String oldNumber = sc.nextLine();
-                        System.out.print("Enter new name : ");
-                        String newNumber = sc.nextLine();
-                        edit.changeNumber(oldNumber, newNumber);
+                        edit.changeNumber(oldNumber);
+                        break;
                     default:
                         System.out.println("Enter correct choice");
                         break;
                 }
                 break;
-            case 0:
+            case '0':
                 System.exit(0);
                 break;
             default:

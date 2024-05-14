@@ -1,42 +1,66 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
 class DeleteContacts {
-    public void deleteContacts(String deleteContact){
-        Scanner sc = new Scanner(System.in);
+    HashMap<String, String> map = new HashMap<>();
+    HashSet<String> nonUniqueValues = new HashSet<>();
 
-        //Reading all contacts
-        HashMap<String, String> map = new HashMap<>();
+    public DeleteContacts(){
         ReadWrite rw = new ReadWrite();
         map = rw.read();
 
-        // Printing all available contacts
-        System.out.println("Available Contacts\n");
-        GetContacts gc = new GetContacts();
-        gc.getContacts();
+        HashSet<String> checkUniqueValues = new HashSet<>();
+        for (String value : map.values()) {
+            boolean check = checkUniqueValues.add(value);
+            if (!check) {
+                nonUniqueValues.add(value);
+            }
+        }
+    }
 
-        // about delete contact
-        boolean flag = true;
+    public void deleteContacts(String deleteContact) {
+        Scanner sc = new Scanner(System.in);
 
-        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            // Checking whether the key or value of the contact to be deleted is the same as the contact to be deleted
-            if (deleteContact.equals(entry.getValue()) || deleteContact.equals(entry.getKey())) {
-                iterator.remove();
-                flag = false;
-                System.out.println("Contact removed successfully");
+        // Reading all contacts
+        HashMap<String, String> map = new HashMap<>();
+        ReadWrite rw = new ReadWrite();
+        map = rw.read();
+        // for same name
+        boolean flag = false;
+        if (nonUniqueValues.contains(deleteContact)) {
+            System.out.println("\nSame name for different number found.");
+            System.out.print("\nEnter contact number : ");
+            String number = sc.next();
+            if (map.containsKey(number)) {
+                map.remove(number);
+                flag = true;
+            } else {
+                System.out.println("Number not found.");
+            }
+        }
+        // for not same name
+        // We need EntrySet because if the user enters a contact name, we cannot remove it from the map using only the value.
+        else {
+            Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, String> entry = iterator.next();
+                if (deleteContact.equals(entry.getValue()) || deleteContact.equals(entry.getKey())) {
+                    iterator.remove();
+                    flag=true;
+                }
             }
         }
         if (flag) {
-            System.out.println("Contact not found.");
+            // writing into file
+            rw.write(map);
+            System.out.println("Contact deleted");
         }
-
-        // writing into file
-        rw.write(map);
-
+        else {
+            System.out.println("\nContact not found.");
+        }
         sc.close();
     }
 }
