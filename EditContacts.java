@@ -43,7 +43,6 @@ class EditContacts {
                 System.exit(0);
             }
             else {
-                map.remove(number,oldName);
                 map.put(number, newName);
                 flag=true;
             }
