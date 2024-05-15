@@ -7,10 +7,9 @@ public class Main {
         System.out.println("2. Add contact");
         System.out.println("3. Delete contact");
         System.out.println("4. Edit contact");
-        System.out.println("5. Search name");
-        System.out.println("6. Search number");
-        System.out.println("7. Sort contact");
-        System.out.println("8. Continue");
+        System.out.println("5. Search contact");
+        System.out.println("6. Sort by name");
+        System.out.println("7. Sort by contact");
         System.out.println("0. Exit");
         System.out.print("\nEnter your choice: ");
         char choice = sc.next().charAt(0);
@@ -21,6 +20,7 @@ public class Main {
                 GetContacts contacts = new GetContacts();
                 contacts.getContacts();
                 break;
+
             case '2':
                 AddContacts add = new AddContacts();
                 System.out.print("Enter total number of contacts you want to add: ");
@@ -37,6 +37,7 @@ public class Main {
                 }
                 add.addContacts(name, number, n);
                 break;
+
             case '3':
                 DeleteContacts delete = new DeleteContacts();
 
@@ -45,6 +46,7 @@ public class Main {
 
                 delete.deleteContacts(deleteContact);
                 break;
+
             case '4':
                 EditContacts edit = new EditContacts();
 
@@ -63,15 +65,25 @@ public class Main {
                         edit.changeNumber(oldNumber);
                         break;
                     default:
-                        System.out.println("Enter correct choice");
+                        System.out.println("Invalid choice.");
                         break;
                 }
                 break;
+            
+            case '5':
+                SearchContacts search = new SearchContacts();
+
+                System.out.print("Enter name or number to search : ");
+                String searchValue = sc.nextLine();
+                search.searchContact(searchValue);
+                break;
+
             case '0':
                 System.exit(0);
                 break;
+
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid choice.");
         }
         sc.close();
     }

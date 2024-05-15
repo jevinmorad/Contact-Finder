@@ -3,9 +3,9 @@ import java.util.*;
 class EditContacts {
     HashMap<String, String> map = new HashMap<>();
     HashSet<String> nonUniqueValues = new HashSet<>();
+    ReadWrite rw = new ReadWrite();
     
     public EditContacts(){
-        ReadWrite rw = new ReadWrite();
         map = rw.read();
 
         HashSet<String> checkUniqueValues = new HashSet<>();
@@ -19,7 +19,6 @@ class EditContacts {
 
     // to change name
     public void changeName(String oldName) {
-        ReadWrite rw = new ReadWrite();
         Scanner sc = new Scanner(System.in);
         
         if (!map.containsValue(oldName)) {
@@ -77,7 +76,6 @@ class EditContacts {
 
     // to change contact
     public void changeNumber(String oldNumber) {
-        ReadWrite rw = new ReadWrite();
         Scanner sc = new Scanner(System.in);
 
         String name;

@@ -7,9 +7,9 @@ import java.util.Scanner;
 class DeleteContacts {
     HashMap<String, String> map = new HashMap<>();
     HashSet<String> nonUniqueValues = new HashSet<>();
+    ReadWrite rw = new ReadWrite();
 
     public DeleteContacts(){
-        ReadWrite rw = new ReadWrite();
         map = rw.read();
 
         HashSet<String> checkUniqueValues = new HashSet<>();
@@ -26,7 +26,6 @@ class DeleteContacts {
 
         // Reading all contacts
         HashMap<String, String> map = new HashMap<>();
-        ReadWrite rw = new ReadWrite();
         map = rw.read();
         // for same name
         boolean flag = false;
