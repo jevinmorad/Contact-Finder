@@ -39,7 +39,7 @@ class EditContacts {
             newName = sc.nextLine();
             
             if (!map.containsKey(number)) {
-                System.out.println("Contact not found.");
+                System.out.println("\nContact not found...");
                 System.exit(0);
             }
             else {
@@ -68,7 +68,7 @@ class EditContacts {
         }
         if (flag) {
             rw.write(map);
-            System.out.println("Name changed sucessfully");
+            System.out.println("\nName changed sucessfully...");
         }
         sc.close();
     }
@@ -85,10 +85,10 @@ class EditContacts {
             map.remove(oldNumber);
             map.put(newNumber, name);
             rw.write(map);
-            System.out.println("Contact number is edited.");
+            System.out.println("\nContact number is edited...");
         }
         else {
-            System.out.println("Number not found.");
+            System.out.println("\nNumber not found...");
         }
         sc.close();
     }

@@ -40,7 +40,6 @@ class SearchContacts {
         System.out.println("name size : "+name.size()+"\nNumber size : "+number.size());
         iterator = foundMap.entrySet().iterator();
 
-        System.out.println("\nFound contacts are\n");
         System.out.println(" Name                   Number\n");
         while (iterator.hasNext()) {
             Map.Entry<String, String> entry = iterator.next();

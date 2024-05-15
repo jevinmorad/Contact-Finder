@@ -30,14 +30,14 @@ class DeleteContacts {
         // for same name
         boolean flag = false;
         if (nonUniqueValues.contains(deleteContact)) {
-            System.out.println("\nSame name for different number found.");
+            System.out.println("\nSame name for different number found...");
             System.out.print("\nEnter contact number : ");
             String number = sc.next();
             if (map.containsKey(number)) {
                 map.remove(number);
                 flag = true;
             } else {
-                System.out.println("Number not found.");
+                System.out.println("\nNumber not found...");
             }
         }
         // for not same name
@@ -55,10 +55,10 @@ class DeleteContacts {
         if (flag) {
             // writing into file
             rw.write(map);
-            System.out.println("Contact deleted");
+            System.out.println("\nContact deleted..");
         }
         else {
-            System.out.println("\nContact not found.");
+            System.out.println("\nContact not found...");
         }
         sc.close();
     }

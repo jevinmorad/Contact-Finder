@@ -8,8 +8,7 @@ public class Main {
         System.out.println("3. Delete contact");
         System.out.println("4. Edit contact");
         System.out.println("5. Search contact");
-        System.out.println("6. Sort by name");
-        System.out.println("7. Sort by contact");
+        System.out.println("7. Sort contact");
         System.out.println("0. Exit");
         System.out.print("\nEnter your choice: ");
         char choice = sc.next().charAt(0);
