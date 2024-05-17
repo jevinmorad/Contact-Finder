@@ -16,7 +16,7 @@ class AddContacts {
             String check = map.put(number[i], name[i]);
 
             if (check != null) {
-                System.out.println(number[i]+" contact has not been entered as it is already exist.");
+                System.out.println("\n"+number[i]+" contact has not been entered as it is already exist.");
                 flag[1]=true;
             }
             else {
@@ -27,10 +27,10 @@ class AddContacts {
             // Calling write method of ReadWrite class to add new contacts in file
             set.write(map);
             if (flag[1]) {
-                System.out.println("All other contacts are added.");
+                System.out.println("\nAll other contacts are added.");
             }
             else {
-                System.out.println("Contact added.");
+                System.out.println("\nContact added.");
             }
         }
 
