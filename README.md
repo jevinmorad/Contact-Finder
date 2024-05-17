@@ -40,7 +40,3 @@ Contributions to the Java Contact Manager project are welcome! To contribute:
 3. Make your changes and commit them with descriptive messages.
 4. Push your changes to your fork.
 5. Submit a pull request to the main repository.
-
-
-## Credits
-Jevin Morad: Project Creator and Developer
