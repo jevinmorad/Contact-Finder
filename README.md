@@ -1,5 +1,5 @@
 
-# Contact-Finder
+# Contact Manager
 
 I showcased the Contact Finder app's features with demo Contacts from a .csv file.
 
