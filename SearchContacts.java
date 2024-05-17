@@ -34,10 +34,9 @@ class SearchContacts {
 
     public void printFoundContacts(HashMap<String, String> foundMap){
         if (foundMap.isEmpty()) {
-            System.out.println("\nNo contact found..");
+            System.out.println("\nContact not found...");
             System.exit(0);
         }
-        System.out.println("name size : "+name.size()+"\nNumber size : "+number.size());
         iterator = foundMap.entrySet().iterator();
 
         System.out.println(" Name                   Number\n");
