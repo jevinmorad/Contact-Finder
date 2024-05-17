@@ -13,7 +13,7 @@ class GetContacts {
         
         System.out.println(" Name                   Number\n");
         for (Map.Entry<String, String> entry : entrySet) {
-            System.out.printf(" %-20s %s%n", entry.getValue(), entry.getKey());
+            System.out.printf(" %-20s %s %n", entry.getValue(), entry.getKey());
         }
     }
 }
