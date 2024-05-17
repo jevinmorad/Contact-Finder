@@ -1,11 +1,7 @@
 
 # Contact-Finder
 
-Demo of a searching and sorting algorithm in contact list.
-
 I showcased the Contact Finder app's features with demo Contacts from a .csv file.
-
-NOTE: This is a CMD version.
 
 
 ## Features
