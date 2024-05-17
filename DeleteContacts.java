@@ -55,7 +55,7 @@ class DeleteContacts {
         if (flag) {
             // writing into file
             rw.write(map);
-            System.out.println("\nContact deleted..");
+            System.out.println("\nContact deleted...");
         }
         else {
             System.out.println("\nContact not found...");
