@@ -35,18 +35,22 @@ class ReadWrite {
         return readMap;
     }
 
-    // Writing contacts
+    // Writing contacts in a sorted order based on their names.
     public void write(HashMap<String, String> map) {
+        SortByName sName = new SortByName();
+        LinkedHashMap<String, String> sortedMap = new LinkedHashMap<>();
+        sortedMap = sName.sort(map);
+
+        // Writting into a file
         FileWriter fw = null;
         try {
             fw = new FileWriter("contact.csv");
             BufferedWriter bw = new BufferedWriter(fw);
 
-            Set<Map.Entry<String, String>> entrySet = map.entrySet();
+            Set<Map.Entry<String, String>> entrySet = sortedMap.entrySet();
 
             for (Map.Entry<String, String> entry : entrySet) {
                 String line = entry.getKey()+","+entry.getValue();
-                // System.out.println(line);
                 bw.write(line);
                 bw.newLine();
             }
