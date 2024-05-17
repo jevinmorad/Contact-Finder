@@ -22,7 +22,7 @@ class EditContacts {
         Scanner sc = new Scanner(System.in);
         
         if (!map.containsValue(oldName)) {
-            System.out.println("Contact not found");
+            System.out.println("\nContact not found...");
             System.exit(1);
         }
 
