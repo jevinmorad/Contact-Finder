@@ -1,7 +1,7 @@
 
 # Contact Manager
 
-I showcased the Contact Finder app's features with demo Contacts from a .csv file.
+I demonstrated the Contact Manager app's functionalities by showcasing its features using sample contacts imported from a .csv file.
 
 
 ## Features
